@@ -13,9 +13,12 @@
 
 ActiveRecord::Schema.define(version: 20150621013003) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "cups", force: true do |t|
     t.string   "name"
-    t.float    "price",      limit: 24
+    t.float    "price"
     t.string   "cover"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -24,7 +27,7 @@ ActiveRecord::Schema.define(version: 20150621013003) do
   create_table "orders", force: true do |t|
     t.string   "out_trade_no"
     t.string   "subject"
-    t.float    "total_fee",    limit: 24
+    t.float    "total_fee"
     t.integer  "cup_id"
     t.string   "trade_status"
     t.datetime "created_at"
